@@ -1,0 +1,82 @@
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.form-card {
+  padding: 1.5rem;
+}
+
+.form-title {
+  margin-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Style des champs Material */
+:host ::ng-deep .mat-form-field-wrapper {
+  margin: 0;
+}
+
+.contacts-section {
+  margin-top: 2rem;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: start;
+}
+
+.add-contact-btn {
+  margin-top: 1rem;
+}
+
+mat-card-actions {
+  margin: 0;
+  padding: 1rem 0 0 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-row button {
+    justify-self: end;
+  }
+}
+
+/* Ajustement des espacements Material */
+::ng-deep .mat-mdc-form-field {
+  margin-bottom: 0;
+}
+
+::ng-deep .mat-mdc-card-header {
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+::ng-deep .mat-mdc-card-content {
+  padding: 0;
+  margin: 0;
+}

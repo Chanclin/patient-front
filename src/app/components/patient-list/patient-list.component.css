@@ -1,0 +1,24 @@
+.patient-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+}
+
+mat-header-cell, mat-cell {
+  padding: 8px 16px;
+}
+
+mat-button {
+  margin-left: auto;
+}
+

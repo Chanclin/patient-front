@@ -1,0 +1,33 @@
+<div class="patient-details" *ngIf="!loading && patient; else loadingTemplate">
+  <h2>Détails du Patient</h2>
+  <div class="details-container">
+    <p><strong>ID :</strong> {{ patient.id }}</p>
+    <p><strong>Nom :</strong> {{ patient.nom }}</p>
+    <p><strong>Prénom :</strong> {{ patient.prenom }}</p>
+    <p><strong>Date de naissance :</strong> {{ patient.dateNaissance | date }}</p>
+    <p><strong>Sexe :</strong> {{ patient.sexe }}</p>
+    <p><strong>Taille :</strong> {{ patient.taille }} cm</p>
+    <p><strong>Poids :</strong> {{ patient.poids }} kg</p>
+    <p><strong>Contacts :</strong></p>
+    <ul>
+      <li *ngFor="let contact of patient?.contacts; let i = index">
+        {{ contact.type }} : {{ contact.valeur }}
+        <button mat-icon-button color="primary" (click)="openContactDialog(contact)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteContact(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </li>
+    </ul>
+    <button mat-stroked-button color="primary" (click)="openContactDialog()">Ajouter un contact</button>
+  </div>
+
+  <button mat-button color="primary" (click)="goBack()">Retour à la liste</button>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading">
+    <p>Chargement des détails du patient...</p>
+  </div>
+</ng-template>
