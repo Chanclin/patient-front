@@ -1,6 +1,6 @@
 export interface Contact {
     id?: string;
-    type: 'email' | 'mobile' | 'fixe';
-    value: string;
+    type: 'EMAIL' | 'MOBILE' | 'FIXE';
+    valeur: string;
   }
   

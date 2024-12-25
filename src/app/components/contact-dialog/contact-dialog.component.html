@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>{{ isEditing ? 'Modifier un contact' : 'Ajouter un contact' }}</h2>
+<mat-dialog-content [formGroup]="contactForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Type</mat-label>
+    <mat-select formControlName="type" required (selectionChange)="onTypeChange($event)">
+      <mat-option *ngFor="let option of contactTypes" [value]="option">{{ option }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Champ spécifique pour Email -->
+  <mat-form-field *ngIf="contactForm.get('type')?.value === 'EMAIL'" appearance="outline">
+    <mat-label>Adresse Email</mat-label>
+    <input matInput formControlName="valeur" type="email" />
+  </mat-form-field>
+
+  <!-- Champ spécifique pour Mobile -->
+  <mat-form-field *ngIf="contactForm.get('type')?.value === 'MOBILE'" appearance="outline">
+    <mat-label>Numéro de téléphone</mat-label>
+    <input matInput formControlName="valeur" type="tel" />
+  </mat-form-field>
+
+  <!-- Champ spécifique pour Fixe -->
+  <mat-form-field *ngIf="contactForm.get('type')?.value === 'FIXE'" appearance="outline">
+    <mat-label>Numéro fixe</mat-label>
+    <input matInput formControlName="valeur" type="tel" />
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="null">Annuler</button>
+  <button mat-button [disabled]="contactForm.invalid" [mat-dialog-close]="contactForm.value" color="primary">
+    {{ isEditing ? 'Modifier' : 'Ajouter' }}
+  </button>
+</mat-dialog-actions>
